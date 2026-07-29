@@ -15,14 +15,14 @@ def bfs(start):
         if node not in visited: 
             visited.append(node) 
             print(node, end=" ") 
-            for neighbour in graph[node]: 
+            for neighbour in graph.get(node, []): 
                 queue.append(neighbour) 
 def dfs(node, visited): 
-if node not in visited: 
-    visited.append(node) 
-    print(node, end=" ") 
-for neighbour in graph[node]: 
-dfs(neighbour, visited) 
+    if node not in visited: 
+        visited.append(node) 
+        print(node, end=" ") 
+        for neighbour in graph.get(node, []): 
+            dfs(neighbour, visited) 
 print("BFS:") 
 bfs(start) 
 print("\nDFS:") 
